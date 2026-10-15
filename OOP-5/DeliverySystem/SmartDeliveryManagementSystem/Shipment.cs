@@ -1,6 +1,6 @@
 ﻿namespace DeliverySystem.SmartDeliveryManagementSystem;
 
-public class Shipment : IInsurable , ITrackable
+public partial class Shipment : IInsurable
 {
 
     #region Fields
@@ -151,12 +151,6 @@ public class Shipment : IInsurable , ITrackable
         Console.WriteLine($"Estimated cost: {EstimatedCost} EGP");
     }
 
-
-
-    public virtual string GetTrackingStatus()
-    {
-        return "in transit";
-    }
 
     public virtual string GetShipmentType()
     {
