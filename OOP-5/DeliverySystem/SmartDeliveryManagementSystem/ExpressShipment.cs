@@ -49,12 +49,17 @@ public class ExpressShipment : Shipment
 
     public override string GetTrackingStatus()
     {
-        return $"Shipment {TrackingCode} is in Out for Delivery.";
+        return "Out for Delivery";
     }
 
     override public decimal CalculateInsurance()
     {
         return EstimatedCost * 0.08m; // 8% of the estimated cost
+    }
+
+    public override string GetShipmentType()
+    {
+        return "Express";
     }
 
     #endregion

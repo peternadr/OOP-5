@@ -14,7 +14,6 @@ public class Shipment : IInsurable , ITrackable
     #endregion
 
     #region Properties
-
     public DeliveryAdress Destination { get; set; }
     public string TrackingCode
     {
@@ -152,9 +151,16 @@ public class Shipment : IInsurable , ITrackable
         Console.WriteLine($"Estimated cost: {EstimatedCost} EGP");
     }
 
+
+
     public virtual string GetTrackingStatus()
     {
-        return $"Shipment with tracking code {TrackingCode} is in transit.";
+        return "in transit";
+    }
+
+    public virtual string GetShipmentType()
+    {
+        return "Shipment";
     }
 
     public virtual decimal CalculateInsurance()

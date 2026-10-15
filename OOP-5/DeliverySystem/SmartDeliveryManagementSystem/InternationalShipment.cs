@@ -69,9 +69,14 @@ public class InternationalShipment : Shipment
         Console.WriteLine($"Destination Country: {DestinationCountry}");
     }
 
+    public override string GetShipmentType()
+    {
+        return "International";
+    }
+
     override public string GetTrackingStatus()
     {
-        return $"Shipment {TrackingCode} has been Delivered.";
+        return "Delivered";
     }
 
     override public decimal CalculateInsurance()

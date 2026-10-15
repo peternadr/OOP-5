@@ -25,9 +25,14 @@ public class StandardShipment : Shipment
         Console.WriteLine($"Estimated cost: {EstimatedCost} EGP");
     }
 
+    public override string GetShipmentType()
+    {
+        return "Standard";
+    }
+
     public override string GetTrackingStatus()
     {
-        return $"Shipment {TrackingCode} is Ready";
+        return "Ready";
     }
 
     public override decimal CalculateInsurance()
