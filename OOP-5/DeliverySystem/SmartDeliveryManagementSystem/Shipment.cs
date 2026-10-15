@@ -1,6 +1,6 @@
 ﻿namespace DeliverySystem.SmartDeliveryManagementSystem;
 
-public abstract class Shipment : IInsurable , ITrackable
+public class Shipment : IInsurable , ITrackable
 {
 
     #region Fields
@@ -16,6 +16,7 @@ public abstract class Shipment : IInsurable , ITrackable
 
     #region Properties
 
+    public DeliveryAdress Destination { get; set; }
     public string TrackingCode
     {
         get
@@ -75,7 +76,7 @@ public abstract class Shipment : IInsurable , ITrackable
         }
     }
 
-    public abstract decimal EstimatedCost { get; }
+    public virtual decimal EstimatedCost { get; }
     #endregion
 
     #region Constructors
@@ -88,13 +89,23 @@ public abstract class Shipment : IInsurable , ITrackable
         DeliveryFee = 50;
     }
 
-    public Shipment(string trackingCode, string description, decimal weight, decimal deliveryFee)
+    public Shipment(string trackingCode,string description, decimal weight, decimal deliveryFee)
     {
         TrackingCode = trackingCode;
         Description = description;
         Weight = weight;
         DeliveryFee = deliveryFee;
     }
+
+    public Shipment(DeliveryAdress deliveryAdress ,string trackingCode,string description, decimal weight, decimal deliveryFee)
+    {
+        Destination = deliveryAdress;
+        TrackingCode = trackingCode;
+        Description = description;
+        Weight = weight;
+        DeliveryFee = deliveryFee;
+    }
+
     #endregion
 
     #region Methods
@@ -125,7 +136,14 @@ public abstract class Shipment : IInsurable , ITrackable
 
 
 
-    public abstract void PrintShipment();
+    public virtual void PrintShipment()
+    {
+        Console.WriteLine($"Tracking code: {TrackingCode}");
+        Console.WriteLine($"Description: {Description}");
+        Console.WriteLine($"Weight: {Weight} KG");
+        Console.WriteLine($"Delivery Fee: {DeliveryFee} EGP");
+        Console.WriteLine($"Estimated cost: {EstimatedCost} EGP");
+    }
 
     public virtual string GetTrackingStatus()
     {
@@ -137,5 +155,15 @@ public abstract class Shipment : IInsurable , ITrackable
         return EstimatedCost;
     }
 
+    public Shipment CopyShipment()
+    {
+        return new Shipment
+        (
+            TrackingCode = this.TrackingCode,
+            Description = this.Description,
+            Weight = this.Weight,
+            DeliveryFee = this.DeliveryFee
+        );
+    }
     #endregion
 }
