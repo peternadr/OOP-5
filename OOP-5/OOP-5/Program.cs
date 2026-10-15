@@ -6,6 +6,83 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        
+        #region Theoretical Questions
+
+        #region Q1  Object Copying
+        // a) What happens when you assign one object variable to another object variable?
+        // When assign one object variable to another, both variables refer to the same object in memory. Changes made through one variable will affect the other since they point to the same instance
+
+        // b) Does assigning one object to another create a new object? Explain.
+        // No, assigning one object to another does not create a new object. It simply copies the reference to the existing object, so both variables point to the same instance in memory
+
+        // c) What is the difference between copying an object and copying its reference?
+        // Copying an object creates a new instance with the same values, while copying its reference means both variables point to the same object in memory. Changes to one will affect the other
+        #endregion
+
+        #region Q2  Shallow Copy vs Deep Copy
+        //a) What is a Shallow Copy?
+        // A shallow copy creates a new object but does not create copies of the objects that the original object references. Instead, it copies the references to those objects, so both the original and the shallow copy share the same referenced objects
+
+        // b) What is a Deep Copy?
+        // A deep copy creates a new object and also recursively copies all objects that the original object references. This means that the new object and the original object are completely independent, with no shared references
+
+        //c) What happens to reference-type members when a Shallow Copy is created?
+        // When a shallow copy is created, reference-type members are not duplicated; instead, the references to those members are copied. As a result, both the original and the shallow copy will point to the same instances of the reference-type members. Changes made to these shared instances through one object will be reflected in the other object
+
+        // d) What happens to reference-type members when a Deep Copy is created?
+        // When a deep copy is created, new instances of the reference-type members are created, and the values of the original object's members are copied into these new instances. This means that the original object and the deep copy have completely independent copies of all reference-type members. Changes made to the reference-type members in one object will not affect the other object
+
+        //e) Give one situation where Deep Copy would be safer than Shallow Copy.
+        // Deep copy would be safer than shallow copy in situations where you want to ensure that modifications to the copied object do not affect the original object, especially when dealing with mutable reference-type members
+
+
+        #endregion
+
+        #region Q3  Static Members
+        //a) What is a static field, and how is it different from an instance field?
+        // A static field belongs to the class itself rather than any specific instance of the class. It is shared among all instances of the class, meaning that there is only one copy of the static field regardless of how many objects are created. In contrast, an instance field is unique to each object, and each instance has its own copy of the field
+
+        //b) What is a static method? Can a static method directly access instance members?
+        // A static method is a method that belongs to the class itself rather than any specific instance of the class. It can be called without creating an instance of the class. A static method cannot directly access instance members (fields or methods) because it does not have a reference to any particular object. To access instance members, a static method would need to create an instance of the class or receive an instance as a parameter
+
+        //c) What is a static constructor, and when is it executed?
+        // A static constructor is a special constructor that is used to initialize static members of a class. It is executed automatically by the runtime before any static members are accessed or any instances of the class are created
+
+        //d) What is a static class? Can you create an object from a static class?
+        // A static class is a class that cannot be instantiated and can only contain static members (fields, methods, properties, etc.). You cannot create an object from a static class
+
+        #endregion
+
+        #region Q4  Extension Methods
+        //a) What is an Extension Method?
+        // An extension method is a static method that allows you to add new functionality to existing types (classes, structs, interfaces) without modifying their source code or creating a new derived type
+
+        //b) What keyword must be used in the first parameter of an extension method?
+        // The "this"
+
+        //c) Where must an extension method be declared?
+        // An extension method must be declared in a static class
+
+        //d) Can an extension method access private members of the class it extends?
+        // No, an extension method cannot access private members of the class it extends. It can only access public and protected members
+
+        #endregion
+
+        #region Q5  Partial Classes and Partial Methods
+        //a) What is a Partial Class?
+        // A partial class is a class whose definition can be split across multiple files
+
+        //b) Why would a developer split one class into multiple files?
+        // to improve code organization, maintainability, and collaboration among team members
+
+        //c) What is a Partial Method?
+        // A partial method is a method that is declared in one part of a partial class and can be optionally implemented in another part of the same partial class
+
+        //d) What happens if a declared partial method has no implementation?
+        // If a declared partial method has no implementation, the compiler removes the method declaration and any calls to it from the compiled code. This means that there will be no runtime overhead for the unimplemented partial method
+
+        #endregion
+
+        #endregion
     }
 }
