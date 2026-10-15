@@ -165,5 +165,11 @@ public class Shipment : IInsurable , ITrackable
             DeliveryFee = this.DeliveryFee
         );
     }
+
+    public Shipment SchallowCopy()
+    {
+        return (Shipment)this.MemberwiseClone();
+    }
+
     #endregion
 }

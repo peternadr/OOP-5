@@ -268,38 +268,6 @@ internal class Program
         //Console.WriteLine();
         #endregion
 
-
-        #region object coping
-        Shipment shipment1 = new Shipment
-        (
-            "sh101",
-            "Laptop",
-            10,
-            50
-        );
-            
-        // Reference Assignment
-        Shipment shipment2 = shipment1;
-
-        shipment2.Description = "Phone";
-
-        Console.WriteLine(shipment1.Description); // Phone
-        Console.WriteLine(shipment2.Description); // Phone
-
-        Console.WriteLine(ReferenceEquals(shipment1, shipment2)); // True
-
-        // Actual Object Copy
-        Shipment shipment3 = shipment1.CopyShipment();
-
-        shipment3.Description = "Tablet";
-
-        Console.WriteLine(shipment1.Description); // Phone
-        Console.WriteLine(shipment3.Description); // Tablet
-
-        Console.WriteLine(ReferenceEquals(shipment1, shipment3)); // False
-
-        #endregion
-
         #endregion
     }
 }
