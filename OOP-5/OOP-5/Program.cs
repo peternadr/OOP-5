@@ -88,185 +88,340 @@ internal class Program
 
         #region Main() Checklist
 
-        #region creat DeliveryCenter
-        //// Create a DeliveryCenter object with a driver name.
-        //Console.WriteLine("Enter Driver Name: ");
-        //string driverName = Console.ReadLine()!;
+        DeliveryUtilities.PrintSeparator();
+        DeliveryUtilities.PrintSystemTitle();
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine();
 
-        //// Create a DeliveryCenter object with the driver name.
-        //DeliveryCenter deliveryCenter = new DeliveryCenter(driverName);
+        
+
+
+        #region creat DeliveryCenter
+        Console.WriteLine();
+        // Create a DeliveryCenter object with a driver name.
+        Console.WriteLine("Enter Driver Name: ");
+        string driverName = Console.ReadLine()!;
+
+        // Create a DeliveryCenter object with the driver name.
+        DeliveryCenter deliveryCenter = new DeliveryCenter(driverName);
         #endregion
 
         #region Creat StanderdShipment
-        //bool flag = false;
+        bool flag = false;
 
-        ////Read the tracking code from the user.
-        //Console.Write("Tracking Code: ");
-        //string trackingCode = Console.ReadLine();
+        //Read the tracking code from the user.
+        Console.Write("Tracking Code: ");
+        string trackingCode = Console.ReadLine();
 
-        ////Read the description from the user.
-        //Console.Write("Description: ");
-        //string description = Console.ReadLine();
+        //Read the description from the user.
+        Console.Write("Description: ");
+        string description = Console.ReadLine();
 
-        //// Get weight from user
-        //decimal weight;
-        //do
-        //{
-        //    Console.Write("Enter Valid Weight: ");
-        //    flag = decimal.TryParse(Console.ReadLine(), out weight);
-        //}
-        //while (!flag || weight <= 0);
+        // Get weight from user
+        decimal weight;
+        do
+        {
+            Console.Write("Enter Valid Weight: ");
+            flag = decimal.TryParse(Console.ReadLine(), out weight);
+        }
+        while (!flag || weight <= 0);
 
-        //// Get DeliveryFee from user
-        //decimal deliveryFee;
-        //do
-        //{
-        //    Console.Write("Enter Valid Delivery Fee: ");
-        //    flag = decimal.TryParse(Console.ReadLine(), out deliveryFee);
-        //}
-        //while (!flag || deliveryFee <= 0);
+        // Get DeliveryFee from user
+        decimal deliveryFee;
+        do
+        {
+            Console.Write("Enter Valid Delivery Fee: ");
+            flag = decimal.TryParse(Console.ReadLine(), out deliveryFee);
+        }
+        while (!flag || deliveryFee <= 0);
 
-        ////Create one StandardShipment.
-        //StandardShipment standardShipment = new StandardShipment(
-        //    trackingCode,
-        //    description,
-        //    weight,
-        //    deliveryFee
-        //    );
+        //Create one StandardShipment.
+        StandardShipment standardShipment = new StandardShipment(
+            trackingCode,
+            description,
+            weight,
+            deliveryFee
+            );
 
-        //Console.WriteLine();
+        Console.WriteLine();
 
-        //// Add StandardShipment
-        //if (deliveryCenter.AddShipment(standardShipment))
-        //{
-        //    Console.WriteLine("Shipment Add Successfully ");
+        // Add StandardShipment
+        if (deliveryCenter.AddShipment(standardShipment))
+        {
+            Console.WriteLine("Shipment Add Successfully ");
 
-        //}
-        //Console.WriteLine("--------------------------");
-        //Console.WriteLine();
+        }
+        Console.WriteLine("--------------------------");
+        Console.WriteLine();
+        
         #endregion
 
         #region Creat ExpressShipment
 
-        ////Read the tracking code from the user.
-        //Console.Write("Tracking Code: ");
-        //string ExpressTrackingCode = Console.ReadLine();
+        //Read the tracking code from the user.
+        Console.Write("Tracking Code: ");
+        string ExpressTrackingCode = Console.ReadLine();
 
-        ////Read the description from the user.
-        //Console.Write("Description: ");
-        //string ExpressDescription = Console.ReadLine();
+        //Read the description from the user.
+        Console.Write("Description: ");
+        string ExpressDescription = Console.ReadLine();
 
-        //// Get weight from user
-        //decimal ExpressWeight;
-        //do
-        //{
-        //    Console.Write("Enter Valid Weight: ");
-        //    flag = decimal.TryParse(Console.ReadLine(), out ExpressWeight);
-        //}
-        //while (!flag || ExpressWeight <= 0);
+        // Get weight from user
+        decimal ExpressWeight;
+        do
+        {
+            Console.Write("Enter Valid Weight: ");
+            flag = decimal.TryParse(Console.ReadLine(), out ExpressWeight);
+        }
+        while (!flag || ExpressWeight <= 0);
 
-        //// Get DeliveryFee from user
-        //decimal ExpressDeliveryFee;
-        //do
-        //{
-        //    Console.Write("Enter Valid Delivery Fee: ");
-        //    flag = decimal.TryParse(Console.ReadLine(), out ExpressDeliveryFee);
-        //}
-        //while (!flag || ExpressDeliveryFee <= 0);
+        // Get DeliveryFee from user
+        decimal ExpressDeliveryFee;
+        do
+        {
+            Console.Write("Enter Valid Delivery Fee: ");
+            flag = decimal.TryParse(Console.ReadLine(), out ExpressDeliveryFee);
+        }
+        while (!flag || ExpressDeliveryFee <= 0);
 
-        //// Get extraFee from user
-        //decimal ExpressExtraFee;
-        //do
-        //{
-        //    Console.Write("Enter Valid Extra Fee: ");
-        //    flag = decimal.TryParse(Console.ReadLine(), out ExpressExtraFee);
-        //}
-        //while (!flag || ExpressExtraFee < 0);
+        // Get extraFee from user
+        decimal ExpressExtraFee;
+        do
+        {
+            Console.Write("Enter Valid Extra Fee: ");
+            flag = decimal.TryParse(Console.ReadLine(), out ExpressExtraFee);
+        }
+        while (!flag || ExpressExtraFee < 0);
 
 
-        ////Create one ExpressShipment.
-        //ExpressShipment expressShipment = new ExpressShipment(
-        //    ExpressTrackingCode,
-        //    ExpressDescription,
-        //    ExpressWeight,
-        //    ExpressDeliveryFee,
-        //    ExpressExtraFee
-        //    );
+        //Create one ExpressShipment.
+        ExpressShipment expressShipment = new ExpressShipment(
+            ExpressTrackingCode,
+            ExpressDescription,
+            ExpressWeight,
+            ExpressDeliveryFee,
+            ExpressExtraFee
+            );
 
-        //Console.WriteLine();
+        Console.WriteLine();
 
-        //// Add ExpressShipment
-        //if (deliveryCenter.AddShipment(expressShipment))
-        //{
-        //    Console.WriteLine("Shipment Add Successfully ");
+        // Add ExpressShipment
+        if (deliveryCenter.AddShipment(expressShipment))
+        {
+            Console.WriteLine("Shipment Add Successfully ");
 
-        //}
-        //Console.WriteLine("--------------------------");
-        //Console.WriteLine();
+        }
+        Console.WriteLine("--------------------------");
+        Console.WriteLine();
         #endregion
 
         #region Creat InternationlShipment
 
-        ////Read the tracking code from the user.
-        //Console.Write("Tracking Code: ");
-        //string InternationlTrackingCode = Console.ReadLine();
+        //Read the tracking code from the user.
+        Console.Write("Tracking Code: ");
+        string InternationlTrackingCode = Console.ReadLine();
 
-        ////Read the description from the user.
-        //Console.Write("Description: ");
-        //string InternationlDescription = Console.ReadLine();
+        //Read the description from the user.
+        Console.Write("Description: ");
+        string InternationlDescription = Console.ReadLine();
 
-        //// Get weight from user
-        //decimal InternationlWeight;
-        //do
-        //{
-        //    Console.Write("Enter Valid Weight: ");
-        //    flag = decimal.TryParse(Console.ReadLine(), out InternationlWeight);
-        //}
-        //while (!flag || InternationlWeight <= 0);
+        // Get weight from user
+        decimal InternationlWeight;
+        do
+        {
+            Console.Write("Enter Valid Weight: ");
+            flag = decimal.TryParse(Console.ReadLine(), out InternationlWeight);
+        }
+        while (!flag || InternationlWeight <= 0);
 
-        //// Get DeliveryFee from user
-        //decimal InternationlDeliveryFee;
-        //do
-        //{
-        //    Console.Write("Enter Valid Delivery Fee: ");
-        //    flag = decimal.TryParse(Console.ReadLine(), out InternationlDeliveryFee);
-        //}
-        //while (!flag || InternationlDeliveryFee <= 0);
+        // Get DeliveryFee from user
+        decimal InternationlDeliveryFee;
+        do
+        {
+            Console.Write("Enter Valid Delivery Fee: ");
+            flag = decimal.TryParse(Console.ReadLine(), out InternationlDeliveryFee);
+        }
+        while (!flag || InternationlDeliveryFee <= 0);
 
-        //// Get customsFee from user
-        //decimal customsFee;
-        //do
-        //{
-        //    Console.Write("Enter Valid customs Fee: ");
-        //    flag = decimal.TryParse(Console.ReadLine(), out customsFee);
-        //}
-        //while (!flag || customsFee < 0);
+        // Get customsFee from user
+        decimal customsFee;
+        do
+        {
+            Console.Write("Enter Valid customs Fee: ");
+            flag = decimal.TryParse(Console.ReadLine(), out customsFee);
+        }
+        while (!flag || customsFee < 0);
 
-        ////Read destinationCountry from user
-        //Console.Write("Destination Country: ");
-        //string destinationCountry = Console.ReadLine();
+        //Read destinationCountry from user
+        Console.Write("Destination Country: ");
+        string destinationCountry = Console.ReadLine();
 
-        ////Create one ExpressShipment.
-        //InternationalShipment internationlShipment = new InternationalShipment(
-        //    InternationlTrackingCode,
-        //    InternationlDescription,
-        //    InternationlWeight,
-        //    InternationlDeliveryFee,
-        //    destinationCountry,
-        //    customsFee
-        //    );
+        //Create one ExpressShipment.
+        InternationalShipment internationlShipment = new InternationalShipment(
+            InternationlTrackingCode,
+            InternationlDescription,
+            InternationlWeight,
+            InternationlDeliveryFee,
+            destinationCountry,
+            customsFee
+            );
 
-        //Console.WriteLine();
+        Console.WriteLine();
 
-        //// Add ExpressShipment
-        //if (deliveryCenter.AddShipment(internationlShipment))
-        //{
-        //    Console.WriteLine("Shipment Add Successfully ");
+        // Add ExpressShipment
+        if (deliveryCenter.AddShipment(internationlShipment))
+        {
+            Console.WriteLine("Shipment Add Successfully ");
 
-        //}
-        //Console.WriteLine("--------------------------");
-        //Console.WriteLine();
+        }
+        Console.WriteLine("--------------------------");
+        Console.WriteLine();
         #endregion
+
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine("Creating Shipments...");
+        DeliveryUtilities.PrintSeparator();
+
+        Console.WriteLine();
+        Console.WriteLine($"Total Shipments: {Shipment.GetTotalShipmentsCreated()}");
+        Console.WriteLine();
+
+        #region object coping
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine("Object Copying");
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine();
+
+        Shipment shipment1 = new Shipment("sh101", "iphone", 10, 520);
+        Shipment shipment2 = shipment1; // Copying reference
+        shipment2.Weight = 15;
+
+        Console.WriteLine($"Original Shipment  : {shipment1.Weight}"); // Output: 15
+        Console.WriteLine($"Assigned  Shipment  : {shipment2.Weight}"); // Output: 15
+        Console.WriteLine();
+
+        Console.WriteLine($"Same Object : {ReferenceEquals(shipment1, shipment2)}"); // Output: True
+        Console.WriteLine();
+        #endregion
+
+        #region Schallow copy
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine("Schallow Copy");
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine();
+
+        DeliveryAdress deliveryAdress = new DeliveryAdress
+        (
+            "Alex",
+            "45 St",
+            12
+        );
+        Shipment shipment3 = new Shipment(deliveryAdress, "sh102", "Samsung", 12, 600);
+        Shipment shipment4 = shipment3.SchallowCopy();
+
+        Console.WriteLine($"Original Shipment  : {shipment3.Destination.City}"); // Output: Alex
+        Console.WriteLine($"Copied Shipment  : {shipment4.Destination.City}"); // Output: Alex
+        Console.WriteLine();
+
+        shipment4.Destination.City = "Cairo";
+        Console.WriteLine("Changing copied shipment address...");
+        Console.WriteLine();
+
+        Console.WriteLine($"Original Shipment  : {shipment3.Destination.City}"); // Output: Cairo
+        Console.WriteLine($"Copied Shipment  : {shipment4.Destination.City}"); // Output: Cairo
+        Console.WriteLine();
+
+        Console.WriteLine($"Same DeliveryAddress Object : {ReferenceEquals(shipment3.Destination, shipment4.Destination)}"); // Output: True
+        Console.WriteLine();
+        #endregion
+
+        #region Deep copy
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine("Deep Copy");
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine();
+
+        Shipment shipment5 = new Shipment(deliveryAdress, "sh102", "Samsung", 12, 600);
+        Shipment shipment6 = shipment5.DeepCopy();
+
+        Console.WriteLine($"Original Shipment  : {shipment5.Destination.City}"); // Output: Cairo
+        Console.WriteLine($"Copied Shipment  : {shipment6.Destination.City}"); // Output: cairo
+        Console.WriteLine();
+
+        shipment6.Destination.City = "alex";
+        Console.WriteLine("Changing copied shipment address...");
+        Console.WriteLine();
+
+        Console.WriteLine($"Original Shipment  : {shipment5.Destination.City}"); // Output: cairo
+        Console.WriteLine($"Copied Shipment  : {shipment6.Destination.City}"); // Output: alex
+        Console.WriteLine();
+
+        Console.WriteLine($"Same DeliveryAddress Object : {ReferenceEquals(shipment5.Destination, shipment6.Destination)}"); // Output: false
+        Console.WriteLine();
+
+        #endregion
+
+        #region Extension Methods
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine("Extension Methods");
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine();
+
+        Console.WriteLine(ShipmentExtensions.GetSummary(standardShipment));
+        Console.WriteLine(ShipmentExtensions.GetSummary(expressShipment));
+        Console.WriteLine(ShipmentExtensions.GetSummary(internationlShipment));
+        Console.WriteLine();
+
+        Console.WriteLine(ShipmentExtensions.IsDelivered(standardShipment));
+        Console.WriteLine(ShipmentExtensions.IsDelivered(expressShipment));
+        Console.WriteLine(ShipmentExtensions.IsDelivered(internationlShipment));
+        Console.WriteLine();
+
+
+        #endregion
+
+        #region Tracking Status
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine("Tracking Status");
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine();
+
+        standardShipment.UpdateTrackingStatus("Out For Delivery ");
+        Console.WriteLine($"Tracking status changed to: {standardShipment.TrackingStatus}");
+        Console.WriteLine();
+
+        #endregion
+
+        #region Static Utilities
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine("Static Utilities");
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine();
+
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine("Delivery Center");
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine();
+
+        Console.WriteLine($"Total Shipments Created : {Shipment.GetTotalShipmentsCreated()}");
+        Console.WriteLine();
+        #endregion
+
+        #region Partial Method
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine("Partial Method");
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine();
+
+        standardShipment.UpdateTrackingStatus("Delivered");
+        Console.WriteLine($"Tracking status changed to: {standardShipment.TrackingStatus}");
+        Console.WriteLine();
+        #endregion
+
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine("Assignment Completed");
+        DeliveryUtilities.PrintSeparator();
+        Console.WriteLine();
 
         #endregion
     }

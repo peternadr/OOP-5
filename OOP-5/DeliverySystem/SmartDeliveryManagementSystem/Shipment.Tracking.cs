@@ -2,9 +2,9 @@
 
 public partial class Shipment : ITrackable
 {
-    public string TrackingStatus { get; private set; }
+    public virtual string TrackingStatus { get; set; } = "In transit";
     public virtual string GetTrackingStatus()
     {
-        return "In Transit";
+        return TrackingStatus;
     }
 }

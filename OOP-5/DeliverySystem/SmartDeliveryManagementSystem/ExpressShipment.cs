@@ -5,6 +5,8 @@ public class ExpressShipment : Shipment
     private decimal extraFee;
 
     #region Properties
+    public override string TrackingStatus { get; set; } = "out for delivery";
+
     public decimal ExtraFee
     {
         get

@@ -10,6 +10,8 @@ public class InternationalShipment : Shipment
     #endregion
 
     #region Properties
+    public override string TrackingStatus { get; set; } = "Delivered";
+
     public string DestinationCountry
     {
         get

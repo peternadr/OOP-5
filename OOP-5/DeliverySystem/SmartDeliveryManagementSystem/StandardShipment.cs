@@ -5,6 +5,8 @@ public class StandardShipment : Shipment
 
     #region proprties
     public override decimal EstimatedCost => DeliveryFee + (Weight * 5);
+
+    public override string TrackingStatus { get; set; } = " Under review ";
     #endregion
 
     #region constructor
