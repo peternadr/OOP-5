@@ -49,7 +49,7 @@ public class ExpressShipment : Shipment
 
     public override string GetTrackingStatus()
     {
-        return "Out for Delivery";
+        return TrackingStatus;
     }
 
     override public decimal CalculateInsurance()

@@ -76,7 +76,7 @@ public class InternationalShipment : Shipment
 
     override public string GetTrackingStatus()
     {
-        return "Delivered";
+        return TrackingStatus;
     }
 
     override public decimal CalculateInsurance()

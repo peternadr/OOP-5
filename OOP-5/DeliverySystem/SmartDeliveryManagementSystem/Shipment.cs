@@ -14,6 +14,8 @@ public partial class Shipment : IInsurable
     #endregion
 
     #region Properties
+    
+
     public DeliveryAdress Destination { get; set; }
     public string TrackingCode
     {
@@ -193,6 +195,16 @@ public partial class Shipment : IInsurable
     {
         return TotalShipmentsCreated;
     }
+
+    partial void OnTrackingStatusChanged(string newStatus);
+
+    public void UpdateTrackingStatus(string newStatus)
+    {
+        TrackingStatus = newStatus;
+
+        OnTrackingStatusChanged(newStatus);
+    }
+
 
     #endregion
 }

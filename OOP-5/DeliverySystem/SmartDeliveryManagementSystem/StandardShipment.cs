@@ -32,7 +32,7 @@ public class StandardShipment : Shipment
 
     public override string GetTrackingStatus()
     {
-        return "Ready";
+        return TrackingStatus;
     }
 
     public override decimal CalculateInsurance()
