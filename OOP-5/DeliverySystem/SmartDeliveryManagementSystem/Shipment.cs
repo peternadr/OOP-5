@@ -8,8 +8,7 @@ public class Shipment : IInsurable , ITrackable
     private string description;
     private decimal weight;
     private decimal deliveryFee;
-
-
+    private static int TotalShipmentsCreated;
 
 
     #endregion
@@ -87,6 +86,7 @@ public class Shipment : IInsurable , ITrackable
         Description = "Unknown";
         Weight = 1;
         DeliveryFee = 50;
+        TotalShipmentsCreated++;
     }
 
     public Shipment(string trackingCode,string description, decimal weight, decimal deliveryFee)
@@ -95,6 +95,7 @@ public class Shipment : IInsurable , ITrackable
         Description = description;
         Weight = weight;
         DeliveryFee = deliveryFee;
+        TotalShipmentsCreated++;
     }
 
     public Shipment(DeliveryAdress deliveryAdress ,string trackingCode,string description, decimal weight, decimal deliveryFee)
@@ -104,6 +105,12 @@ public class Shipment : IInsurable , ITrackable
         Description = description;
         Weight = weight;
         DeliveryFee = deliveryFee;
+        TotalShipmentsCreated++;
+    }
+
+    static Shipment()
+    {
+        Console.WriteLine("Shipment System Initialized");
     }
 
     #endregion
@@ -180,6 +187,11 @@ public class Shipment : IInsurable , ITrackable
             this.Destination.BuildingNumber
             );
         return copy;
+    }
+
+    public static int GetTotalShipmentsCreated()
+    {
+        return TotalShipmentsCreated;
     }
 
     #endregion
